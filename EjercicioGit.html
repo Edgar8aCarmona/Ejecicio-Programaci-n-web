@@ -1,0 +1,139 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Ejercicio Git</title>
+<style type="text/css">
+.text {
+	font-family: Verdana, Geneva, sans-serif;
+}
+.sub {
+	font-family: Verdana, Geneva, sans-serif;
+}
+.formulario {
+	font-family: Verdana, Geneva, sans-serif;
+	font-weight: bold;
+	letter-spacing: normal;
+	text-align: center;
+	vertical-align: middle;
+	word-spacing: normal;
+	margin-top: 0px;
+	margin-right: 10px;
+	margin-bottom: 0px;
+	margin-left: 30px;
+	padding-top: 0px;
+	padding-right: 10px;
+	padding-bottom: 0px;
+	padding-left: 30px;
+}
+div.ex1 {
+  width: 200px;
+  margin: auto;
+}
+.need {
+  border: 2px solid #06F;
+  border-radius: 4px;
+}
+.out {
+  border: 0px;
+}
+</style>
+<script>
+function myAlert() {
+  alert("Boleta:      "+form.key.value+"\n Nombre:  "+form.name.value+"\n Grupo: "+form.group.value+"\n Materia: "+form.subject.value+"\n Fecha:   "+form.date.value);
+  
+} 
+</script>
+<script type="text/javascript">
+function retrieve() {
+			retrieve = document.getElementById("data")
+				 boleta = "<p> Boleta: " + document.form.key.value + "</p>"
+				 console.log(name)
+				 nombre = "<p> Nombre: " + document.form.name.value + "</p>"
+				 grupo = "<p> Grupo: " + document.form.group.value + "</p>"
+				 materia = "<p> Materia: " + document.form.subject.value + "</p>"
+				 fecha = "<p>Fecha: " + document.form.date.value + "</p>"
+				 retrieve.innerHTML = boleta + nombre + grupo + materia + fecha
+				 }
+	window.onload = function() {
+	document.form.onScreen.onclick = retrieve
+	}      
+</script>
+<script type="text/javascript">
+function actualizarValor(estaChequeado, valor) {
+
+  var suma_actual = 0;
+  var campo_resultado = document.getElementById('txtValor');
+  valor = parseInt(valor);
+
+  try {
+    if (campo_resultado != null) {
+
+      if (isNaN(campo_resultado.value)) {
+        campo_resultado.value = 0;
+      }
+
+      suma_actual = parseInt(campo_resultado.value);
+    }
+  } catch (ex) {
+    alert('No existe el campo de la suma.');
+  }
+
+  if (estaChequeado == true) {
+    suma_actual = suma_actual + valor;
+  } else {
+    suma_actual = suma_actual - valor;
+  }
+
+  campo_resultado.value = suma_actual;
+}
+</script>
+<script type="text/javascript">
+  var seleccion = document.getElementById('nombres'); 
+  for (var i = 0, total = tortas.length; i < total; i++) {
+    var celebridad = tortas[i];
+    if (celebridad.checked){
+      seleccion.push(celebridad.name);
+    }
+  }
+  salidaTortas.textContent =  seleccion.join(", ") + ".";
+</script>
+</head>
+<body>
+<h1 align="center" class="text">Solicitud</h1>
+<p>&nbsp;</p>
+<p align="center" class="sub"><em>El borde azul indica Obligatorio</em></p>
+<form id="form" name="form" action="#">
+  <div align="center">
+    <table width="329" border="0" class="formulario">
+      <tr>
+        <td width="99">Boleta</td>
+        <td width="203"><input required class="need" name="key" type="text" id="key" onkeyup="this.value=this.value.replace(/[^\d]/,'')"/>        </td>
+      </tr>
+      <tr>
+        <td>Nombre</td>
+        <td><input class="need" required type="text" name="name" id="name" onkeyup="this.value=this.value.replace(/[0-9]/,'')" required/>        </td>
+      </tr>
+	  <tr>
+        <td>Grupo</td>
+        <td><input class="need" required type="text" name="group" id="group" required/>        </td>
+      </tr>
+	  <tr>
+        <td>Materia</td>
+        <td><input class="need" required type="text" name="subject" id="subject" onkeyup="this.value=this.value.replace(/[0-9]/,'')" required/>        </td>
+      </tr>
+      <tr>
+        <td>Fecha</td>
+        <td><input class="need" required type="date" name="date" id="date" />        </td>
+      </tr>
+    </table>
+</div>
+  <p align="center">
+    <input type="button" onclick="myAlert()" name="onAlert" id="onAlert" value="Enviar" />
+  </p>
+</form>
+<div id="data" align="center">
+</div>
+<p align="center" class="sub">Edgar Ochoa Carmona 2021</p>
+</body>
+</html>
